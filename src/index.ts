@@ -29,19 +29,24 @@ const KEY_DISPLAY_MAP: KeyDisplayMapType = {
     Meta: 'Command',
     Alt: 'Option',
     Control: 'Control',
+    Shift: 'Shift',
   },
   macSymbol: {
     Meta: '⌘',
     Alt: '⌥',
     Control: '^',
+    Shift: '⇧',
+    CapsLock: '⇪',
   },
   window: {
     Alt: 'Alt',
     Control: 'Ctrl',
+    Shift: 'Shift',
   },
   windowSymbol: {
     Alt: 'Alt',
     Control: 'Ctrl',
+    Shift: 'Shift',
   },
 };
 
@@ -76,7 +81,6 @@ const INVERTED_KEY_MAP: InvertedKeyMapType = Object.entries(KEY_MAP).reduce(
 const DEFAULT_SEPARATOR = '+';
 
 /**
- * convert
  * window, mac 여부를 판단해서 OS에 맞는 keyboard shortcuts 표기로 변환해준다.
  * Ctrl+C -> Cmd+C, ⌘C, Command+C
  * 제공 예정 옵션

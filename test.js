@@ -80,36 +80,57 @@ describe('normalizeToken', () => {
     );
   });
 });
-// describe('convert - platform이 Mac일 경우', () => {
-//   test('Mac shortcut 표기법에 맞게 표시된다.', () => {
-//     jest.spyOn(utils, 'isIOS').mockImplementation(() => true);
-//     expect(convert('$mod')).toBe('Command');
-//     expect(convert('Shift+K')).toBe('Shift+K');
-//     expect(convert('$mod+Shift+K')).toBe('Command+Shift+K');
-//   });
-//   test('splitSeparator가 존재할 경우, 해당 문자열 기준으로 잘라낸다.', () => {
-//     jest.spyOn(utils, 'isIOS').mockImplementation(() => true);
-//     const options = {
-//       splitSeparator: '-',
-//     };
-//     expect(convert('Shift-K', options)).toBe('Shift+K');
-//     expect(convert('$mod-Shift-K', options)).toBe('Command+Shift+K');
-//   });
-//   test('joinSeparator가 존재할 경우, 해당 문자열을 사용해서 병합된다.', () => {
-//     jest.spyOn(utils, 'isIOS').mockImplementation(() => true);
-//     const options = {
-//       joinSeparator: '-',
-//     };
-//     expect(convert('Shift+K', options)).toBe('Shift-K');
-//     expect(convert('$mod+Shift+K', options)).toBe('Command-Shift-K');
-//   });
-// });
 
-// describe('convert - platform이 Window/Server일 경우', () => {
-//   test('window shortcut 표기법에 맞게 표시된다.', () => {
-//     jest.spyOn(utils, 'isIOS').mockImplementation(() => false);
-//     expect(convert('$mod')).toBe('Ctrl');
-//     expect(convert('Shift+K')).toBe('Shift+K');
-//     expect(convert('$mod+Shift+K')).toBe('Ctrl+Shift+K');
-//   });
-// });
+describe('convert', () => {
+  test('platform이 Mac일 경우, Mac shortcut 표기법에 맞게 표시된다.', () => {
+    jest.spyOn(utils, 'isIOS').mockImplementation(() => true);
+    expect(convert('$mod')).toBe('Command');
+    expect(convert('Shift+K')).toBe('Shift+K');
+    expect(convert('$mod+Shift+K')).toBe('Command+Shift+K');
+
+    expect(
+      convert('$mod+Shift+K', {
+        normalizeOptions: {
+          separator: '',
+          useSymbol: true,
+        },
+      }),
+    ).toBe('⌘⇧K');
+    expect(
+      convert('Ctrl-shift-a', {
+        parseOptions: {
+          separator: '-',
+        },
+        normalizeOptions: {
+          useSymbol: true,
+        },
+      }),
+    ).toBe('^+⇧+A');
+  });
+  test('platform이 Window/Server일 경우, window shortcut 표기법에 맞게 표시된다.', () => {
+    jest.spyOn(utils, 'isIOS').mockImplementation(() => false);
+    expect(convert('$mod')).toBe('Ctrl');
+    expect(convert('Shift+K')).toBe('Shift+K');
+    expect(convert('$mod+Shift+K')).toBe('Ctrl+Shift+K');
+
+    expect(
+      convert('$mod+Shift+K', {
+        normalizeOptions: {
+          separator: '',
+          useSymbol: true,
+        },
+      }),
+    ).toBe('CtrlShiftK');
+
+    expect(
+      convert('Ctrl-shift-a', {
+        parseOptions: {
+          separator: '-',
+        },
+        normalizeOptions: {
+          useSymbol: true,
+        },
+      }),
+    ).toBe('Ctrl+Shift+A');
+  });
+});
