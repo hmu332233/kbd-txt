@@ -14,30 +14,44 @@ describe('parseToToken', () => {
     expect(parseToToken('$mod')).toEqual(['control']);
   });
   test('Meta를 나타내는 키워드들이 Meta로 변환된다.', () => {
-    expect(parseToToken('command+cmd+⌘')).toEqual(['meta', 'meta', 'meta']);
-    expect(parseToToken('Command+Cmd+⌘')).toEqual(['meta', 'meta', 'meta']);
-    expect(parseToToken('COMMAND+CMD+⌘')).toEqual(['meta', 'meta', 'meta']);
+    expect(parseToToken('command+cmd+⌘')).toEqual(['Meta', 'Meta', 'Meta']);
+    expect(parseToToken('Command+Cmd+⌘')).toEqual(['Meta', 'Meta', 'Meta']);
+    expect(parseToToken('COMMAND+CMD+⌘')).toEqual(['Meta', 'Meta', 'Meta']);
   });
   test('Alt를 나타내는 키워드들이 Alt로 변환된다.', () => {
-    expect(parseToToken('alt+option+⌥')).toEqual(['alt', 'alt', 'alt']);
-    expect(parseToToken('Alt+Option+⌥')).toEqual(['alt', 'alt', 'alt']);
-    expect(parseToToken('ALT+OPTION+⌥')).toEqual(['alt', 'alt', 'alt']);
+    expect(parseToToken('alt+option+⌥')).toEqual(['Alt', 'Alt', 'Alt']);
+    expect(parseToToken('Alt+Option+⌥')).toEqual(['Alt', 'Alt', 'Alt']);
+    expect(parseToToken('ALT+OPTION+⌥')).toEqual(['Alt', 'Alt', 'Alt']);
   });
   test('Control을 나타내는 키워드들이 Control로 변환된다.', () => {
     expect(parseToToken('control+ctrl+^')).toEqual([
-      'control',
-      'control',
-      'control',
+      'Control',
+      'Control',
+      'Control',
     ]);
     expect(parseToToken('Control+Ctrl+^')).toEqual([
-      'control',
-      'control',
-      'control',
+      'Control',
+      'Control',
+      'Control',
     ]);
     expect(parseToToken('CONTROL+CTRL+^')).toEqual([
-      'control',
-      'control',
-      'control',
+      'Control',
+      'Control',
+      'Control',
+    ]);
+  });
+  test('meta, alt, control 외의 키워드들은 소문자로 변환된다.', () => {
+    expect(parseToToken('A+B+c+d+!+@+#+1+2+3')).toEqual([
+      'a',
+      'b',
+      'c',
+      'd',
+      '!',
+      '@',
+      '#',
+      '1',
+      '2',
+      '3',
     ]);
   });
 });

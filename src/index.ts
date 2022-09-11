@@ -11,16 +11,16 @@ const MAC_KEY_MAP = {};
 
 const WINDOW_SYMBOL_MAP = {};
 const MAC_SYMBOL_MAP = {
-  meta: '⌘',
-  alt: '⌥',
-  control: '^',
+  Meta: '⌘',
+  Alt: '⌥',
+  Control: '^',
 };
 
 const KEY_MAP = {
-  meta: ['command', 'cmd', '⌘'],
-  alt: ['alt', 'option', '⌥'],
-  control: ['control', 'ctrl', '^'],
-  shift: ['shift'],
+  Meta: ['command', 'cmd', '⌘'],
+  Alt: ['alt', 'option', '⌥'],
+  Control: ['control', 'ctrl', '^'],
+  Shift: ['shift'],
 };
 
 type InvertedKeyMapType = {
@@ -72,7 +72,7 @@ export function convert(
 /**
  * shortcut string을 파싱하여, Token으로 변환한다.
  * KeyboardEvent.key와 같은 형태이며,
- * $mod는 OS에 타입에 따라 meta/control로 변환된다.
+ * $mod는 OS에 타입에 따라 Meta/Control로 변환된다.
  *
  * @param str A Shortcut string
  * @param separator A string that identifies character or characters to use in separating the string
