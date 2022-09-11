@@ -1,7 +1,7 @@
 # kbd-txt
 
-A lightweight library for easy mac/window shortcut notation.  
-Determine whether it is mac/window or not and convert it to the correct keyboard shortcut text.
+mac/window 단축키 표기를 쉽게 할 수 있는 가벼운 라이브러리  
+mac/window 여부를 판단해서 맞는 Keyboard Shortcut Text로 변환해준다.
 
 ## Installation
 
@@ -43,19 +43,19 @@ normalizeOptions: {
 }
 ```
 
-## How it works
+## 동작 컨셉
 
 ```
-Shortcut Text --(parse)--> Token(KeyboardEvent.key) --(normalize)--> Shortcuts Text for OS
+단축키 str --(parse)--> Token(KeyboardEvent.key) --(normalize)--> OS에 맞는 단축키 표기
 
-parse: Receive shortcut text and convert to Token(KeyboardEvent.key) format
-normalize: Merge Token to reflect options
+parse: 단축키를 받아 Token 형태로 변환
+normalize: Token을 옵션에 따라 병합하여 표기
 ```
 
 ## Roadmaps
 
 - [ ] CDN version
-- [ ] Option to view OS version as fixed (View only in Mac version, view only in Window version)
+- [ ] OS 버전을 고정으로 볼 수 있는 기능 (Mac 버전으로만 보기, Window 버전으로만 보기)
 
 ## Contributing
 

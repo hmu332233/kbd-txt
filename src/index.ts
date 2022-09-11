@@ -103,8 +103,8 @@ export function convert(
  * KeyboardEvent.key와 같은 형태이며,
  * $mod는 OS에 타입에 따라 Meta/Control로 변환된다.
  *
- * @param str A Shortcut string
- * @param separator A string that identifies characters to use in separating the string
+ * @param str A Shortcut string.
+ * @param separator A string that identifies characters to use in separating the string.
  * @returns Token[]
  */
 export function parseToToken(
