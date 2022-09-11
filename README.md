@@ -54,6 +54,7 @@ normalize: Merge Token to reflect options
 
 ## Roadmaps
 
+- [ ] Demo Site
 - [ ] CDN version
 - [ ] Option to view OS version as fixed (View only in Mac version, view only in Window version)
 
