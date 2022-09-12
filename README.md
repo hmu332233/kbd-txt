@@ -1,7 +1,7 @@
 # kbd-txt
 
 A lightweight library for easy mac/window shortcut notation.  
-Determine whether it is mac/window or not and convert it to the correct keyboard shortcut text.
+`kbd-txt` convert shortcut text depending on the type of OS (window/linux/mac).
 
 ## Installation
 
@@ -53,7 +53,7 @@ Shift: ['shift'],
 
 ### convert
 
-Determine whether it is mac/window or not and convert it to the correct keyboard shortcut text.
+Convert shortcut text depending on the type of OS (window/linux/mac).
 
 ```ts
 const options = { normalizeOptions: { useSymbol: true } };
@@ -77,7 +77,7 @@ normalizeOptions: {
 
 ### parseToToken
 
-Parse the shortcut text and convert it to Token.  
+Parse the shortcut text and convert to Token(KeyboardEvent.key) format.  
 It's the same form as the `Keyboard Event.key`.  
 `$mod` is converted to Meta/Control depending on the type of OS.
 
@@ -96,7 +96,7 @@ separator?: string; // A string that identifies characters to use in separating 
 
 ### normalizeToken
 
-Convert Token[] to text according to the option.
+Merge Token[] to text according to the option.
 
 ```ts
 normalizeToken(['Alt', 's']);
@@ -117,8 +117,8 @@ useSymbol?: boolean; // If true, Display as a symbol.
 ```
 Shortcut Text --(parse)--> Token(KeyboardEvent.key) --(normalize)--> Shortcuts Text for OS
 
-parse: Receive shortcut text and convert to Token(KeyboardEvent.key) format
-normalize: Merge Token to reflect options
+parse: Parse the shortcut text and convert to Token(KeyboardEvent.key) format
+normalize: Merge Token[] to text according to the option
 ```
 
 ## Roadmaps
