@@ -6,7 +6,10 @@ Determine whether it is mac/window or not and convert it to the correct keyboard
 ## Installation
 
 ```bash
+# npm
 npm install --save kbd-txt
+
+# yarn
 yarn add kbd-txt
 ```
 
@@ -15,23 +18,52 @@ yarn add kbd-txt
 ```js
 import { convert } from 'kbd-txt';
 
-const shortcutText = 'Ctrl+S';
-
 // Basic Usage
-convert(shortcutText);
+convert('Alt+S');
 // Results
-//   mac: Command+K
-//   window: Ctrl+K
+//   mac: Option+S
+//   window: Alt+S
+
+// Basic Usage 2 - $mod
+convert('$mod+s');
+// Results
+//   mac: Command+S
+//   window: Ctrl+S
 
 // Symbol Usage
 const options = { normalizeOptions: { useSymbol: true } };
-convert(shortcutText, options);
+convert('$mod+s', options);
 // Results
-//   mac: ⌘+K
-//   window: Ctrl+K
+//   mac: ⌘+S
+//   window: Ctrl+S
 ```
 
-## Options
+## Supported Keys
+
+`kbd-txt` understands the following modifiers:
+
+```
+Meta: ['command', 'cmd', '⌘'],
+Alt: ['alt', 'option', '⌥'],
+Control: ['control', 'ctrl', '^'],
+Shift: ['shift'],
+```
+
+## API REFERENCE
+
+### convert
+
+Determine whether it is mac/window or not and convert it to the correct keyboard shortcut text.
+
+```ts
+const options = { normalizeOptions: { useSymbol: true } };
+convert('$mod+s', options);
+// Results
+//   mac: ⌘+S
+//   window: Ctrl+S
+```
+
+**Options**
 
 ```ts
 parseOptions: {
@@ -41,6 +73,43 @@ normalizeOptions: {
   separator?: string; // A string used to separate one element of the array from the next in the resulting string.
   useSymbol?: boolean; // If true, Display as a symbol.
 }
+```
+
+### parseToToken
+
+Parse the shortcut text and convert it to Token.  
+It's the same form as the `Keyboard Event.key`.  
+`$mod` is converted to Meta/Control depending on the type of OS.
+
+```ts
+parseToToken('$mod+S');
+// Results
+//   mac: ['Meta', 's']
+//   window: ['Control', 's']
+```
+
+**Options**
+
+```ts
+separator?: string; // A string that identifies characters to use in separating the string.
+```
+
+### normalizeToken
+
+Convert Token[] to text according to the option.
+
+```ts
+normalizeToken(['Alt', 's']);
+// Results
+//   mac: Option+S
+//   window: Alt+S
+```
+
+**Options**
+
+```ts
+separator?: string; // A string used to separate one element of the array from the next in the resulting string.
+useSymbol?: boolean; // If true, Display as a symbol.
 ```
 
 ## How it works
