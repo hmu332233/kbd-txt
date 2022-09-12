@@ -3,8 +3,15 @@
   "description": "A lightweight library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).",
   "version": "0.0.3",
   "author": "Minung Han <hmu332233@gmail.com>",
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "source": "src/index.ts",
+  "main": "dist/kbd-txt.cjs",
+  "module": "dist/kbd-txt.module.js",
+  "unpkg": "dist/kbd-txt.umd.js",
+  "types": "dist/kbd-txt.d.ts",
+  "exports": {
+    "require": "./dist/kbd-txt.cjs",
+    "default": "./dist/kbd-txt.modern.mjs"
+  },
   "repository": "https://github.com/hmu332233/kbd-txt.git",
   "homepage": "https://github.com/hmu332233/kbd-txt",
   "bugs": {
@@ -21,8 +28,10 @@
     "user-agent-data-types": "^0.3.0"
   },
   "scripts": {
-    "build": "tsc --build",
-    "clean": "tsc --build --clean",
+    "build": "microbundle",
+    "build:ts": "tsc --build",
+    "clean:ts": "tsc --build --clean",
+    "pretest": "yarn build:ts",
     "test": "jest",
     "prepare": "husky install",
     "format": "prettier src/**/* --write --ignore-unknown"

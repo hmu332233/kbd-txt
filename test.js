@@ -1,6 +1,10 @@
 'use strict';
-const { convert, parseToToken, normalizeToken } = require('./dist/index.js');
-const utils = require('./dist/utils.js');
+const {
+  convert,
+  parseToToken,
+  normalizeToken,
+} = require('./dist-test/index.js');
+const utils = require('./dist-test/utils.js');
 
 describe('parseToToken', () => {
   test('platform이 Mac일 경우, $mod가 meta로 변환된다.', () => {
