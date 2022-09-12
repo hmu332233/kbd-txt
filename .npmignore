@@ -3,4 +3,5 @@ node_modules/
 test.js
 README.KR.md
 tsconfig.json
-src
+src/
+yarn-error.log
