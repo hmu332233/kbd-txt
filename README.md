@@ -1,6 +1,6 @@
 # kbd-txt
 
-A lightweight library for easy mac/window shortcut notation.  
+A lightweight (~850 B) library for easy mac/window shortcut notation.  
 `kbd-txt` convert shortcut text depending on the type of OS (window/linux/mac).
 
 ## Installation
