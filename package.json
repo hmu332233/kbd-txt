@@ -1,10 +1,15 @@
 {
   "name": "kbd-txt",
+  "description": "A lightweight library for easy mac/window shortcut notation. Determine whether it is mac/window or not and convert it to the correct keyboard shortcut text.",
   "version": "0.0.1",
+  "author": "Minung Han <hmu332233@gmail.com>",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "repository": "https://github.com/hmu332233/kbd-txt.git",
-  "author": "Minung Han <hmu332233@gmail.com>",
+  "homepage": "https://github.com/hmu332233/kbd-txt",
+  "bugs": {
+    "url": "https://github.com/hmu332233/kbd-txt/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "husky": "^8.0.0",
@@ -20,5 +25,9 @@
     "test": "jest",
     "prepare": "husky install",
     "format": "prettier src/**/* --write --ignore-unknown"
-  }
+  },
+  "keywords": [
+    "kbd",
+    "shortcut"
+  ]
 }
