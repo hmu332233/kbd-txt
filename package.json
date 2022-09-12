@@ -12,6 +12,9 @@
     "require": "./dist/kbd-txt.cjs",
     "default": "./dist/kbd-txt.modern.mjs"
   },
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/hmu332233/kbd-txt.git",
   "homepage": "https://github.com/hmu332233/kbd-txt",
   "bugs": {
