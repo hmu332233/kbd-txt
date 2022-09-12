@@ -57,12 +57,14 @@ const KEY_MAP = {
   Shift: ['shift'],
 };
 
+type KeysType = keyof typeof KEY_MAP;
+
 type InvertedKeyMapType = {
   [key: string]: string;
 };
-const INVERTED_KEY_MAP: InvertedKeyMapType = Object.entries(KEY_MAP).reduce(
-  (ret, entry) => {
-    const [key, values] = entry;
+const INVERTED_KEY_MAP: InvertedKeyMapType = Object.keys(KEY_MAP).reduce(
+  (ret, key) => {
+    const values = KEY_MAP[key as KeysType];
     const valuesRet = values.reduce((valueRet, value) => {
       return {
         ...valueRet,
@@ -82,13 +84,9 @@ const DEFAULT_SEPARATOR = '+';
 
 /**
  * window, mac 여부를 판단해서 OS에 맞는 keyboard shortcuts 표기로 변환해준다.
- * Ctrl+C -> Cmd+C, ⌘C, Command+C
- * 제공 예정 옵션
- * OS 버전 고정: Mac 버전으로만 보기, Window 버전으로만 보기
- * Mac 아이콘 표기: Command (or Cmd) ⌘, Shift ⇧, Option (or Alt) ⌥, Control (or Ctrl) ⌃, Caps Lock ⇪
- *
- * 구현 방향
- * parse -> token 리턴 -> token을 옵션에 맞춰서 변경 후 join -> 결과 리턴
+ * @param str A Shortcut string.
+ * @param parseOptions
+ * @param normalizeOptions
  */
 export function convert(
   str: string,
