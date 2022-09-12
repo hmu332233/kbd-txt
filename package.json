@@ -8,8 +8,9 @@
   "main": "dist/kbd-txt.cjs",
   "module": "dist/kbd-txt.module.js",
   "unpkg": "dist/kbd-txt.umd.js",
-  "types": "dist/kbd-txt.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/kbd-txt.cjs",
     "default": "./dist/kbd-txt.modern.mjs"
   },
