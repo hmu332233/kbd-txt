@@ -25,6 +25,14 @@ describe('parseToToken', () => {
     expect(parseToToken('Alt+Option+⌥')).toEqual(['Alt', 'Alt', 'Alt']);
     expect(parseToToken('ALT+OPTION+⌥')).toEqual(['Alt', 'Alt', 'Alt']);
   });
+  test('Shift를 나타내는 키워드들이 Alt로 변환된다.', () => {
+    expect(parseToToken('SHIFT+Shift+shift+⇧')).toEqual([
+      'Shift',
+      'Shift',
+      'Shift',
+      'Shift',
+    ]);
+  });
   test('Control을 나타내는 키워드들이 Control로 변환된다.', () => {
     expect(parseToToken('control+ctrl+^')).toEqual([
       'Control',
