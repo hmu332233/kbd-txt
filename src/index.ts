@@ -1,7 +1,7 @@
 import { isIOS, toUpperFirst } from './utils';
 
 /**
- * KeyboardEvent.key와 같은 의미를 나타낸다.
+ *  Same meaning as KeyboardEvent.key
  */
 type Token = string;
 
@@ -83,7 +83,7 @@ const INVERTED_KEY_MAP: InvertedKeyMapType = Object.keys(KEY_MAP).reduce(
 const DEFAULT_SEPARATOR = '+';
 
 /**
- * window, mac 여부를 판단해서 OS에 맞는 keyboard shortcuts 표기로 변환해준다.
+ * Convert shortcut text depending on the type of OS (window/linux/mac).
  * @param str A Shortcut string.
  * @param parseOptions
  * @param normalizeOptions
@@ -97,9 +97,8 @@ export function convert(
 }
 
 /**
- * shortcut string을 파싱하여, Token으로 변환한다.
- * KeyboardEvent.key와 같은 형태이며,
- * $mod는 OS에 타입에 따라 Meta/Control로 변환된다.
+ * Parse the shortcut text and convert to Token(KeyboardEvent.key) format.
+ * $mod is converted to Meta/Control depending on the type of OS.
  *
  * @param str A Shortcut string.
  * @param separator A string that identifies characters to use in separating the string.
@@ -123,9 +122,9 @@ export function parseToToken(
 }
 
 /**
- * Token[]을 option에 맞춰서 text로 변환한다.
+ * Merge Token[] to text according to the option.
  *
- * @param tokens parseToToken으로부터 받은 Token[] / string[]와 동일
+ * @param tokens Token[]
  * @param separator A string used to separate one element of the array from the next in the resulting string.
  * @param useSymbol If true, Display as a symbol.
  * @returns
