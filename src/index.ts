@@ -19,52 +19,61 @@ type NormalizeOptions = {
   separator?: string;
 };
 
-type KeyDisplayMapType = {
+const TOKEN_NAME = {
+  META: 'Meta',
+  ALT: 'Alt',
+  CONTROL: 'Control',
+  SHIFT: 'Shift',
+  CAPSLOCK: 'CapsLock',
+} as const;
+
+const TOKEN_MAP = {
+  [TOKEN_NAME.META]: ['command', 'cmd', '⌘'],
+  [TOKEN_NAME.ALT]: ['alt', 'option', '⌥'],
+  [TOKEN_NAME.CONTROL]: ['control', 'ctrl', '^'],
+  [TOKEN_NAME.SHIFT]: ['shift', '⇧'],
+};
+
+type TokenDisplayMapType = {
   [key: string]: {
     [key: string]: string;
   };
 };
-const KEY_DISPLAY_MAP: KeyDisplayMapType = {
+
+const TOKEN_DISPLAY_MAP: TokenDisplayMapType = {
   mac: {
-    Meta: 'Command',
-    Alt: 'Option',
-    Control: 'Control',
-    Shift: 'Shift',
+    [TOKEN_NAME.META]: 'Command',
+    [TOKEN_NAME.ALT]: 'Option',
+    [TOKEN_NAME.CONTROL]: 'Control',
+    [TOKEN_NAME.SHIFT]: 'Shift',
   },
   macSymbol: {
-    Meta: '⌘',
-    Alt: '⌥',
-    Control: '^',
-    Shift: '⇧',
-    CapsLock: '⇪',
+    [TOKEN_NAME.META]: '⌘',
+    [TOKEN_NAME.ALT]: '⌥',
+    [TOKEN_NAME.CONTROL]: '^',
+    [TOKEN_NAME.SHIFT]: '⇧',
+    [TOKEN_NAME.CAPSLOCK]: '⇪',
   },
   window: {
-    Alt: 'Alt',
-    Control: 'Ctrl',
-    Shift: 'Shift',
+    [TOKEN_NAME.ALT]: 'Alt',
+    [TOKEN_NAME.CONTROL]: 'Ctrl',
+    [TOKEN_NAME.SHIFT]: 'Shift',
   },
   windowSymbol: {
-    Alt: 'Alt',
-    Control: 'Ctrl',
-    Shift: 'Shift',
+    [TOKEN_NAME.ALT]: 'Alt',
+    [TOKEN_NAME.CONTROL]: 'Ctrl',
+    [TOKEN_NAME.SHIFT]: 'Shift',
   },
 };
 
-const KEY_MAP = {
-  Meta: ['command', 'cmd', '⌘'],
-  Alt: ['alt', 'option', '⌥'],
-  Control: ['control', 'ctrl', '^'],
-  Shift: ['shift'],
-};
+type TokenNames = keyof typeof TOKEN_MAP;
 
-type KeysType = keyof typeof KEY_MAP;
-
-type InvertedKeyMapType = {
+type TokenSynonymMapType = {
   [key: string]: string;
 };
-const INVERTED_KEY_MAP: InvertedKeyMapType = Object.keys(KEY_MAP).reduce(
+const TOKEN_SYNONYM_MAP: TokenSynonymMapType = Object.keys(TOKEN_MAP).reduce(
   (ret, key) => {
-    const values = KEY_MAP[key as KeysType];
+    const values = TOKEN_MAP[key as TokenNames];
     const valuesRet = values.reduce((valueRet, value) => {
       return {
         ...valueRet,
@@ -118,7 +127,7 @@ export function parseToToken(
       if (key === '$mod') {
         return mod;
       }
-      return INVERTED_KEY_MAP[key] || key;
+      return TOKEN_SYNONYM_MAP[key] || key;
     });
 }
 
@@ -136,7 +145,7 @@ export function normalizeToken(
 ) {
   const typeKey = isIOS() ? 'mac' : 'window';
   const symbolKey = useSymbol ? 'Symbol' : '';
-  const keyDisplayMap = KEY_DISPLAY_MAP[`${typeKey}${symbolKey}`];
+  const keyDisplayMap = TOKEN_DISPLAY_MAP[`${typeKey}${symbolKey}`];
 
   return tokens
     .map((v) => keyDisplayMap[v] || v)
