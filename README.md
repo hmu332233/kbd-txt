@@ -64,7 +64,7 @@ convert('$mod+s', options);
 Meta: ['command', 'cmd', '⌘'],
 Alt: ['alt', 'option', '⌥'],
 Control: ['control', 'ctrl', '^'],
-Shift: ['shift'],
+Shift: ['shift', '⇧'],
 ```
 
 ## API REFERENCE
