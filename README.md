@@ -5,12 +5,20 @@ A lightweight (~850 B) library for easy mac/window shortcut notation.
 
 ## Installation
 
+Using npm/yarn:
+
 ```bash
 # npm
 npm install --save kbd-txt
 
 # yarn
 yarn add kbd-txt
+```
+
+Using unpkg CDN:
+
+```html
+<script src="https://unpkg.com/kbd-txt/dist/kbd-txt.umd.js"></script>
 ```
 
 ## Quick Usage
@@ -38,6 +46,16 @@ convert('$mod+s', options);
 //   window: Ctrl+S
 ```
 
+### Use CDN
+
+```html
+<script src="https://unpkg.com/kbd-txt/dist/kbd-txt.umd.js">
+  kbdTxt.convert('Alt+S');
+  kbdTxt.convert('$mod+s');
+  kbdTxt.convert('$mod+s', { normalizeOptions: { useSymbol: true } });
+</script>
+```
+
 ## Supported Keys
 
 `kbd-txt` understands the following modifiers:
@@ -46,7 +64,7 @@ convert('$mod+s', options);
 Meta: ['command', 'cmd', '⌘'],
 Alt: ['alt', 'option', '⌥'],
 Control: ['control', 'ctrl', '^'],
-Shift: ['shift'],
+Shift: ['shift', '⇧'],
 ```
 
 ## API REFERENCE
@@ -124,7 +142,7 @@ normalize: Merge Token[] to text according to the option
 ## Roadmaps
 
 - [ ] Demo Site
-- [ ] CDN version
+- [x] CDN version
 - [ ] Option to view OS version as fixed (View only in Mac version, view only in Window version)
 
 ## Contributing
