@@ -91,6 +91,14 @@ describe('normalizeToken', () => {
       'Ctrl+K',
     );
   });
+  test('os가 있으면 해당 os타입 기준으로 변환한다.', () => {
+    expect(
+      normalizeToken(['Control', 'k'], { os: 'window', useSymbol: true }),
+    ).toEqual('Ctrl+K');
+    expect(
+      normalizeToken(['Control', 'k'], { os: 'mac', useSymbol: true }),
+    ).toEqual('^+K');
+  });
 });
 
 describe('convert', () => {
