@@ -1,7 +1,7 @@
 {
   "name": "kbd-txt",
   "description": "A lightweight (~850 B) library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Minung Han <hmu332233@gmail.com>",
   "type": "module",
   "source": "src/index.ts",
@@ -43,6 +43,9 @@
   },
   "keywords": [
     "kbd",
-    "shortcut"
+    "shortcut",
+    "symbol",
+    "window",
+    "mac"
   ]
 }
