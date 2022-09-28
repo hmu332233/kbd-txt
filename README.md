@@ -3,6 +3,9 @@
 A lightweight (~850 B) library for easy mac/window shortcut notation.  
 `kbd-txt` convert shortcut text depending on the type of OS (window/linux/mac).
 
+This is useful when you want to display a shortcut text that fits user's OS.
+It is also useful for converting mac's shortcut keys to symbols.
+
 ## Installation
 
 Using npm/yarn:
@@ -90,6 +93,7 @@ parseOptions: {
 normalizeOptions: {
   separator?: string; // A string used to separate one element of the array from the next in the resulting string.
   useSymbol?: boolean; // If true, Display as a symbol.
+  os?: 'window' | 'mac' // If set, Display a shortcut text that fits OS.
 }
 ```
 
@@ -128,6 +132,7 @@ normalizeToken(['Alt', 's']);
 ```ts
 separator?: string; // A string used to separate one element of the array from the next in the resulting string.
 useSymbol?: boolean; // If true, Display as a symbol.
+os?: 'window' | 'mac' // If set, Display a shortcut text that fits OS.
 ```
 
 ## How it works
@@ -143,7 +148,7 @@ normalize: Merge Token[] to text according to the option
 
 - [ ] Demo Site
 - [x] CDN version
-- [ ] Option to view OS version as fixed (View only in Mac version, view only in Window version)
+- [x] Option to view OS version as fixed (View only in Mac version, view only in Window version)
 
 ## Contributing
 
