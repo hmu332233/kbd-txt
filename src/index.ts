@@ -1,5 +1,7 @@
 import { isIOS, toUpperFirst } from './utils';
 
+type OS = 'window' | 'mac';
+
 /**
  *  Same meaning as KeyboardEvent.key
  */
@@ -17,6 +19,7 @@ type ParseOptions = {
 type NormalizeOptions = {
   useSymbol?: boolean;
   separator?: string;
+  os?: OS;
 };
 
 const TOKEN_NAME = {
@@ -140,9 +143,9 @@ export function parseToToken(
  */
 export function normalizeToken(
   tokens: Token[],
-  { separator = DEFAULT_SEPARATOR, useSymbol }: NormalizeOptions = {},
+  { separator = DEFAULT_SEPARATOR, useSymbol, os }: NormalizeOptions = {},
 ) {
-  const typeKey = isIOS() ? 'mac' : 'window';
+  const typeKey = os || (isIOS() ? 'mac' : 'window');
   const symbolKey = useSymbol ? 'Symbol' : '';
   const keyDisplayMap = TOKEN_DISPLAY_MAP[`${typeKey}${symbolKey}`];
 
