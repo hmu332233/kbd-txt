@@ -39,7 +39,9 @@
     "pretest": "yarn build:ts",
     "test": "jest",
     "prepare": "husky install",
-    "format": "prettier src/**/* --write --ignore-unknown"
+    "format": "prettier src/**/* --write --ignore-unknown",
+    "clean": "rm -rf ./dist ./dist-test",
+    "prepack": "yarn build"
   },
   "keywords": [
     "kbd",
