@@ -1,22 +1,18 @@
 {
-  "name": "kbd-txt",
+  "private": true,
+  "name": "root",
   "description": "A lightweight (~850 B) library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).",
   "version": "0.1.6",
   "author": "Minung Han <hmu332233@gmail.com>",
-  "type": "module",
-  "source": "src/index.ts",
-  "main": "dist/kbd-txt.cjs",
-  "module": "dist/kbd-txt.module.js",
-  "unpkg": "dist/kbd-txt.umd.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "types": "./dist/index.d.ts",
-    "require": "./dist/kbd-txt.cjs",
-    "default": "./dist/kbd-txt.modern.mjs"
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/user-agent-data-types",
+      "**/user-agent-data-types/**"
+    ]
   },
-  "files": [
-    "dist"
-  ],
   "repository": "https://github.com/hmu332233/kbd-txt.git",
   "homepage": "https://github.com/hmu332233/kbd-txt",
   "bugs": {
@@ -27,27 +23,11 @@
     "husky": "^8.0.0",
     "jest": "^29.0.2",
     "lint-staged": "^13.0.3",
-    "microbundle": "^0.15.1",
     "prettier": "2.7.1",
-    "typescript": "^4.8.2",
-    "user-agent-data-types": "^0.3.0"
+    "turbo": "^1.6.3"
   },
   "scripts": {
-    "build": "microbundle",
-    "build:ts": "tsc --build",
-    "clean:ts": "tsc --build --clean",
-    "pretest": "yarn build:ts",
-    "test": "jest",
-    "prepare": "husky install",
-    "format": "prettier src/**/* --write --ignore-unknown",
-    "clean": "rm -rf ./dist ./dist-test",
-    "prepack": "yarn build"
-  },
-  "keywords": [
-    "kbd",
-    "shortcut",
-    "symbol",
-    "window",
-    "mac"
-  ]
+    "build": "turbo build",
+    "test": "turbo test"
+  }
 }
