@@ -19,6 +19,7 @@
     "turbo": "^1.6.3"
   },
   "scripts": {
+    "dev": "turbo dev",
     "build": "turbo build",
     "test": "turbo test"
   }
