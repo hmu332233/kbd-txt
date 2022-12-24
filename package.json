@@ -1,8 +1,6 @@
 {
   "private": true,
   "name": "root",
-  "description": "A lightweight (~850 B) library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).",
-  "version": "0.1.6",
   "author": "Minung Han <hmu332233@gmail.com>",
   "workspaces": {
     "packages": [
@@ -13,12 +11,6 @@
       "**/user-agent-data-types/**"
     ]
   },
-  "repository": "https://github.com/hmu332233/kbd-txt.git",
-  "homepage": "https://github.com/hmu332233/kbd-txt",
-  "bugs": {
-    "url": "https://github.com/hmu332233/kbd-txt/issues"
-  },
-  "license": "MIT",
   "devDependencies": {
     "husky": "^8.0.0",
     "jest": "^29.0.2",
