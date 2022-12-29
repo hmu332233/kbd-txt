@@ -2,46 +2,99 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# kbd-txt
 
-Let's discover **Docusaurus in less than 5 minutes**.
+A lightweight (~850 B) library for easy mac/window shortcut notation.  
+`kbd-txt` convert shortcut text depending on the type of OS (window/linux/mac).
 
-## Getting Started
+This is useful when you want to display a shortcut text that fits user's OS.
+It is also useful for converting mac's shortcut keys to symbols.
 
-Get started by **creating a new site**.
+## Installation
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+Using npm/yarn:
 
 ```bash
-npm init docusaurus@latest my-website classic
+# npm
+npm install --save kbd-txt
+
+# yarn
+yarn add kbd-txt
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Using unpkg CDN:
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```html
+<script src="https://unpkg.com/kbd-txt/dist/kbd-txt.umd.js"></script>
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## Quick Usage
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```js
+import { convert } from 'kbd-txt';
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+// Basic Usage
+convert('Alt+S');
+// Results
+//   mac: Option+S
+//   window: Alt+S
+
+// Basic Usage 2 - $mod
+convert('$mod+s');
+// Results
+//   mac: Command+S
+//   window: Ctrl+S
+
+// Symbol Usage
+const options = { normalizeOptions: { useSymbol: true } };
+convert('$mod+s', options);
+// Results
+//   mac: ⌘+S
+//   window: Ctrl+S
+```
+
+### Use CDN
+
+```html
+<script src="https://unpkg.com/kbd-txt/dist/kbd-txt.umd.js">
+  kbdTxt.convert('Alt+S');
+  kbdTxt.convert('$mod+s');
+  kbdTxt.convert('$mod+s', { normalizeOptions: { useSymbol: true } });
+</script>
+```
+
+## Supported Keys
+
+`kbd-txt` understands the following modifiers:
+
+```
+Meta: ['command', 'cmd', '⌘'],
+Alt: ['alt', 'option', '⌥'],
+Control: ['control', 'ctrl', '^'],
+Shift: ['shift', '⇧'],
+```
+
+## How it works
+
+```
+Shortcut Text --(parse)--> Token(KeyboardEvent.key) --(normalize)--> Shortcuts Text for OS
+
+parse: Parse the shortcut text and convert to Token(KeyboardEvent.key) format
+normalize: Merge Token[] to text according to the option
+```
+
+## Roadmaps
+
+- [ ] Demo Site
+- [x] CDN version
+- [x] Option to view OS version as fixed (View only in Mac version, view only in Window version)
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
