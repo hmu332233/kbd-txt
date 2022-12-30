@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Preview from '@site/src/components/Preview';
 
 import styles from './index.module.css';
 
@@ -36,7 +36,9 @@ export default function Home(): JSX.Element {
     >
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <Suspense fallback={<div>로딩 중..</div>}>
+          <Preview />
+        </Suspense>
       </main>
     </Layout>
   );
