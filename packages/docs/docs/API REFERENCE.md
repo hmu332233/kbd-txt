@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 ### convert
 
 Convert shortcut text depending on the type of OS (window/linux/mac).
