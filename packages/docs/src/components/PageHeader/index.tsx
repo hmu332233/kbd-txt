@@ -17,7 +17,7 @@ function PageHeader() {
         </p>
         <Link
           className="button button--primary button--lg"
-          to="/docs/Getting%20Started/Introduction"
+          to="/docs/getting-started/introduction"
         >
           Get Started&nbsp;&nbsp;→
         </Link>
