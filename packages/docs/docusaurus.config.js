@@ -53,7 +53,7 @@ const config = {
       navbar: {
         title: 'kbd-txt',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'kbd-txt Logo',
           src: 'img/logo.svg',
         },
         items: [
