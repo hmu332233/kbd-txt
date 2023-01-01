@@ -59,7 +59,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'Getting Started/Introduction',
+            docId: 'getting-started/introduction',
             position: 'left',
             label: 'Docs',
           },
@@ -83,7 +83,7 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/Getting Started/Introduction',
+                to: '/docs/getting-started/introduction',
               },
             ],
           },
