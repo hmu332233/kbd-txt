@@ -4,12 +4,12 @@ sidebar_position: 1
 
 # Introduction
 
-## kbd-txt
-
 A lightweight (~850 B) library for easy mac/window shortcut notation.  
 `kbd-txt` convert shortcut text depending on the type of OS (window/linux/mac).
 
-This is useful when you want to display a shortcut text that fits user's OS.
+## When to use?
+
+This is useful when you want to display a shortcut text that fits user's OS.  
 It is also useful for converting mac's shortcut keys to symbols.
 
 ## Installation

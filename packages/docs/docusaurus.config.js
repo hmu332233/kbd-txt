@@ -91,6 +91,10 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Npm',
+                href: 'https://www.npmjs.com/package/kbd-txt',
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/hmu332233/kbd-txt',
               },
