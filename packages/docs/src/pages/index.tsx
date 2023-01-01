@@ -4,37 +4,15 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Preview from '@site/src/components/Preview';
+import PageHeader from '@site/src/components/PageHeader';
 
 import styles from './index.module.css';
 
-function HomepageHeader() {
+function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <div className={clsx('hero shadow--lw', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--primary button--lg"
-            to="/docs/Getting%20Started/Introduction"
-          >
-            Get Started&nbsp;&nbsp;→
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
-      <HomepageHeader />
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+      <PageHeader />
       <main>
         <Suspense fallback={<div>로딩 중..</div>}>
           <Preview />
@@ -43,3 +21,5 @@ export default function Home(): JSX.Element {
     </Layout>
   );
 }
+
+export default Home;

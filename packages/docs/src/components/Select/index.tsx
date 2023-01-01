@@ -20,7 +20,9 @@ function Select<T extends Item>({
 }: Props<T>): JSX.Element {
   return (
     <RadioGroup value={value} onChange={onChange}>
-      <RadioGroup.Label>{label}</RadioGroup.Label>
+      <RadioGroup.Label>
+        <strong>{label}</strong>
+      </RadioGroup.Label>
       {Object.values(items).map((item) => (
         <RadioGroup.Option value={item.value}>
           {({ checked }) => (

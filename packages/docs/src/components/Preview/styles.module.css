@@ -9,3 +9,12 @@
   height: 200px;
   width: 200px;
 }
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table th {
+  width: 50%;
+}
