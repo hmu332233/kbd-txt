@@ -1,17 +1,25 @@
-export const OS_ITEMS = {
-  auto: {
+export const USE_SYMBOL_ITEMS = [
+  {
+    text: 'true',
+    value: true,
+  },
+  {
+    text: 'false',
+    value: false,
+  },
+];
+
+export const OS_ITEMS = [
+  {
     text: 'Auto',
     value: '',
   },
-  window: {
-    text: 'Window',
-    value: 'window',
-  },
-  mac: {
+  {
     text: 'Mac',
     value: 'mac',
   },
-} as const;
-
-export type OS_KEY = keyof typeof OS_ITEMS;
-export type OS_VALUE = typeof OS_ITEMS[OS_KEY]['value'];
+  {
+    text: 'Window',
+    value: 'window',
+  },
+];
