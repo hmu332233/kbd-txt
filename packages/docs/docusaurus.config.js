@@ -9,7 +9,7 @@ const config = {
   title: 'kbd-txt',
   tagline:
     'A lightweight (~850 B) library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://kbd-txt.minung.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -42,6 +42,9 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-HE6TXJ8CQL',
         },
       }),
     ],
