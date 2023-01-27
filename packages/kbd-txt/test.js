@@ -6,6 +6,53 @@ const {
 } = require('./dist-test/index.js');
 const utils = require('./dist-test/utils.js');
 
+describe('platform', () => {
+  describe.each([
+    'global.navigator.userAgentData.platform',
+    'global.navigator.platform',
+  ])('%s 를 사용하는 경우', (navigatorProperty) => {
+    beforeEach(() => {
+      global.navigator = {
+        userAgentData: { platform: undefined },
+        platform: undefined,
+      };
+    });
+
+    test.each(['MacIntel', 'Ipod', 'Iphone', 'Ipad', 'MacPPC', 'Mac68K'])(
+      'IOS(%s) 경우 true 를 반환',
+      (platform) => {
+        global.navigator = /userAgentData/.test(navigatorProperty)
+          ? { userAgentData: { platform } }
+          : { platform };
+
+        expect(utils.isIOS()).toBe(true);
+      },
+    );
+
+    test.each(['Win32', 'Win64', 'Windows', 'WinCE', 'Linux', 'Android'])(
+      '다른 OS(%s)의 경우 false 를 반환',
+      (platform) => {
+        global.navigator = /userAgentData/.test(navigatorProperty)
+          ? { userAgentData: { platform } }
+          : { platform };
+
+        expect(utils.isIOS()).toBe(false);
+      },
+    );
+
+    test.each([null, undefined])(
+      'platform이 없는 경우 false 를 반환',
+      (platform) => {
+        global.navigator = /userAgentData/.test(navigatorProperty)
+          ? { userAgentData: { platform } }
+          : { platform };
+
+        expect(utils.isIOS()).toBe(false);
+      },
+    );
+  });
+});
+
 describe('parseToToken', () => {
   test('platform이 Mac일 경우, $mod가 meta로 변환된다.', () => {
     jest.spyOn(utils, 'isIOS').mockImplementation(() => true);
