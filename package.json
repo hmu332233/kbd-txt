@@ -21,6 +21,7 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "test": "turbo test"
+    "test": "turbo test",
+    "prepare": "husky install"
   }
 }

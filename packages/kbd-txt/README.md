@@ -6,6 +6,9 @@ A lightweight (~850 B) library for easy mac/window shortcut notation.
 This is useful when you want to display a shortcut text that fits user's OS.
 It is also useful for converting mac's shortcut keys to symbols.
 
+**[Demo »](https://kbd-txt.minung.dev)**  
+**[Getting Started »](https://kbd-txt.minung.dev/docs/getting-started/introduction)**
+
 ## Installation
 
 Using npm/yarn:
@@ -146,7 +149,7 @@ normalize: Merge Token[] to text according to the option
 
 ## Roadmaps
 
-- [ ] Demo Site
+- [x] Demo Site
 - [x] CDN version
 - [x] Option to view OS version as fixed (View only in Mac version, view only in Window version)
 

@@ -1,7 +1,7 @@
 {
   "name": "kbd-txt",
   "description": "A lightweight (~850 B) library for easy mac/window shortcut notation. kbd-txt convert shortcut text depending on the type of OS (window/linux/mac).",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "author": "Minung Han <hmu332233@gmail.com>",
   "type": "module",
   "source": "src/index.ts",
@@ -35,7 +35,6 @@
     "pretest": "yarn build:ts",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "prepare": "husky install",
     "format": "prettier src/**/* --write --ignore-unknown",
     "clean": "rm -rf ./dist ./dist-test",
     "prepack": "yarn build"
