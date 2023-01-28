@@ -11,7 +11,7 @@ It is also useful for converting mac's shortcut keys to symbols.
 
 ## Packages
 
-[pacakages/kbd-txt](https://linktodocumentation): Main Library  
+[pacakages/kbd-txt](https://github.com/hmu332233/kbd-txt/tree/feature/readme/packages/kbd-txt): Main Library  
 [pacakages/docs](https://github.com/hmu332233/kbd-txt/tree/main/packages/kbd-txt): Docs using Docusaurus 2
 
 ## Contributing
