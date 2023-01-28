@@ -6,7 +6,7 @@ A lightweight (~850 B) library for easy mac/window shortcut notation.
 This is useful when you want to display a shortcut text that fits user's OS.
 It is also useful for converting mac's shortcut keys to symbols.
 
-**[Docs »](https://kbd-txt.minung.dev/docs/getting-started/introduction)**  
+**[Demo »](https://kbd-txt.minung.dev)**  
 **[Getting Started »](https://kbd-txt.minung.dev/docs/getting-started/introduction)**
 
 ## Packages
