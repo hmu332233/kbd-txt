@@ -6834,6 +6834,11 @@ jsonfile@^6.0.1:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
 
+kbd-txt@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/kbd-txt/-/kbd-txt-0.1.6.tgz#395c2aaacc6cd7e4134df0694411f48190f1f596"
+  integrity sha512-i8YaRLynaQELtLJwOblKE5rHo5xDzDtRG2F6/TfO2MlHA68cAqOVg4N10eC76PP/A7yyzsc3SH8DOEi21k9Nzw==
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"

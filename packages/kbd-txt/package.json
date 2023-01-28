@@ -35,7 +35,6 @@
     "pretest": "yarn build:ts",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "prepare": "husky install",
     "format": "prettier src/**/* --write --ignore-unknown",
     "clean": "rm -rf ./dist ./dist-test",
     "prepack": "yarn build"
