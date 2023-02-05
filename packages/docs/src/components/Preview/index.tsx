@@ -23,10 +23,10 @@ function Preview() {
           <div className="col">
             <h2>Preview</h2>
             <p className="margin--none">
-              This is useful when you want to display a shortcut text that fits
-              user's OS.
+              This library can be useful when you want to display keyboard
+              shortcuts in a way that is specific to the user's operating system
               <br />
-              It is also useful for converting mac's shortcut keys to symbols.
+              or for converting Mac keyboard shortcuts into symbols.
             </p>
           </div>
         </div>
