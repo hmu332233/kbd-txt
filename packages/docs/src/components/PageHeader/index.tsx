@@ -10,10 +10,10 @@ function PageHeader() {
       <div className="container text--left">
         <h1 className="hero__title">kbd-txt</h1>
         <p className="hero__subtitle">
-          A lightweight (~850 B) library for easy mac/window shortcut notation.
+          kbd-txt is a lightweight (~850 B) library that formats keyboard
+          shortcuts for Mac, Windows,
           <br />
-          kbd-txt convert shortcut text depending on the type of OS
-          (window/linux/mac).
+          making it easy to display shortcuts for users on different systems.
         </p>
         <Link
           className="button button--primary button--lg"
