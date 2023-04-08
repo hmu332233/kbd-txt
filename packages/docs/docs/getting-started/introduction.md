@@ -83,9 +83,9 @@ parse: Parse the shortcut text and convert to Token(KeyboardEvent.key) format
 normalize: Merge Token[] to text according to the option
 ```
 
-## Roadmaps
+## Roadmap
 
-- [ ] Demo Site
+- [x] Demo Site
 - [x] CDN version
 - [x] Option to view OS version as fixed (View only in Mac version, view only in Window version)
 
