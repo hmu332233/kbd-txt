@@ -8,7 +8,7 @@ sidebar_label: Introduction
 
 ## When to use?
 
-This library can be useful when you want to display keyboard shortcuts in a way that is specific to the user's operating system or for converting Mac keyboard shortcuts into symbols.
+This library can be useful if you want to display shortcuts in a way specific to the user's operating system, or to convert Mac shortcuts to icons.
 
 ## Installation
 
