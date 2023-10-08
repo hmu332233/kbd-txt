@@ -4,11 +4,14 @@ sidebar_label: Introduction
 
 # Introduction
 
-"kbd-txt" is a lightweight (~850 B) library that formats keyboard shortcuts to work with Mac, Windows, and Linux operating systems, making it easy to display shortcuts for users on different systems.
+## Welcome to kbd-txt: Cross-Platform Keyboard Shortcut Solution!
+Dealing with keyboard shortcuts can often become a maze when your application is being accessed across different operating systems like Mac, Windows, and Linux. That's where kbd-txt shines!
 
-## When to use?
+## What is kbd-txt?
+kbd-txt is a feather-light JavaScript library, with a footprint of just about 850 bytes, engineered to format and display keyboard shortcuts in a consistent manner across Mac, Windows, and Linux operating systems. This nifty library takes the headache out of managing multiple shortcut notations by converting shortcut text based on the OS type, ensuring a smooth user interaction regardless of the platform.
 
-This library can be useful if you want to display shortcuts in a way specific to the user's operating system, or to convert Mac shortcuts to icons.
+## Why choose kbd-txt?
+If your project requires displaying keyboard shortcuts to users on diverse systems, kbd-txt is your ideal companion. It gracefully handles the formatting, offering a clear and user-friendly presentation of shortcuts, enhancing the overall user experience.
 
 ## Installation
 
